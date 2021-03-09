@@ -1,0 +1,89 @@
+﻿@model IEnumerable<InsurancePolicy.Models.Policy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Policy Details</h2>
+<h3 class="text-success">@TempData["Message"]</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyType.PolicyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstallementPremium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Insured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumAssured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PremiumMode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PremiumDueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beneficiary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyTerm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyType.PolicyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstallementPremium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Insured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumAssured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PremiumMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PremiumDueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beneficiary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyTerm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPolicy", new { id=item.PolicyNumber }) |
+            @Html.ActionLink("Delete", "DeletePolicy", new { id=item.PolicyNumber })
+        </td>
+    </tr>
+}
+
+</table>
