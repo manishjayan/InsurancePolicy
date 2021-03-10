@@ -21,6 +21,7 @@ namespace InsurancePolicy.Controllers
         [HttpGet]
         public ActionResult AddPolicy()
         {
+            // select list from repository
             ViewBag.PlanNumber = policyRepository.InitializeSelectListForPlanNumber();
             ViewBag.Owner = policyRepository.InitializeSelectListForOwner();
             ViewBag.Insured = policyRepository.InitializeSelectListForInsured();
