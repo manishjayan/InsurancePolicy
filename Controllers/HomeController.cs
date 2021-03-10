@@ -9,6 +9,7 @@ namespace InsurancePolicy.Controllers
 {
     public class HomeController : Controller
     {
+        // All model operations in repository
         PolicyRepository policyRepository = new PolicyRepository();
 
         [HttpGet]
