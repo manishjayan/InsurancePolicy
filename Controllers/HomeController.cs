@@ -67,7 +67,23 @@ namespace InsurancePolicy.Controllers
         [HttpPost]
         public ActionResult EditPolicy(Policy policy)
         {
-            return View();
+            TempData["Message"] = policy.PolicyNumber + " Policy is Successfully Edited";
+            SqlParameter[] parameters = {
+                        new SqlParameter("policyno", policy.PolicyNumber),
+                        new SqlParameter("planno", policy.PlanNumber),
+                        new SqlParameter("installement", policy.InstallementPremium),
+                        new SqlParameter("insured", policy.Insured),
+                        new SqlParameter("assured", policy.SumAssured),
+                        new SqlParameter("status", policy.PolicyStatus),
+                        new SqlParameter("mode", policy.PremiumMode),
+                        new SqlParameter("due", policy.PremiumDueDate),
+                        new SqlParameter("benfit", policy.Beneficiary),
+                        new SqlParameter("owner", policy.Owner),
+                        new SqlParameter("policyterm", policy.PolicyTerm)
+                };
+            //{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}
+            var result = context.Database.ExecuteSqlCommand("USP_POLICIES_EDIT @policyno, @planno, @installement, @insured, @assured, @status, @mode, @due, @benfit, @owner, @policyterm", parameters);
+            return RedirectToAction("Index");
         }
 
         public ActionResult DeletePolicy(int id)
