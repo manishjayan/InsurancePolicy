@@ -149,6 +149,7 @@
     <Compile Include="Models\ParticipantType.cs" />
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Models\PolicyContext.cs" />
+    <Compile Include="Models\PolicyRepository.cs" />
     <Compile Include="Models\PolicyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
